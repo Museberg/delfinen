@@ -59,16 +59,48 @@ public class Tournament {
       String location = console.nextLine();
       System.out.println("Your tournament has been set to be in " + location);
       System.out.print("What is the placement for the tournament? ");
-      int placement = console.nextInt();
+      int placement = InputHelper.getIntFromUser();
       System.out.println("Your placement has been set to be " + placement);
       System.out.println("What time should the tournament be? ");
       System.out.println("The time should be formatted by hh,mm!");
-      double time = console.nextDouble();
+      double time = InputHelper.getDoubleFromUser();
       
+      System.out.println();
       Tournament temp = new Tournament(time, location, placement, tournamentName);  
       System.out.println(temp);
    
       tournamentList.add(temp);
+   }
+   
+   public static void editTournament(ArrayList<Tournament> tournamentList){
+      Scanner console = new Scanner(System.in);
+      for(int i = 0; i < tournamentList.size(); i++) {
+         System.out.println(i+1 + ". " + "Tournament Name: "+ tournamentList.get(i).getTournamentName());
+      }
+      System.out.println("\nFor which tournament would you like to edit? ");
+      int targetTournament = InputHelper.getIntFromUser() -1;
+      System.out.println("\n1. Time \n2. Location \n3. Placement \n4. TournamentName");
+      int choice = InputHelper.getOptionFromUser(1,4);
+      switch(choice) {
+         case 1:
+            System.out.println("What is the new time? ");
+            Double newTime = InputHelper.getDoubleFromUser();
+            tournamentList.get(targetTournament + 1).setTime(newTime);
+            break;
+         case 2:
+            System.out.println("Set the new location ");
+            String newLocation = console.nextLine();
+            tournamentList.get(targetTournament + 1).setLocation(newLocation);
+            break;
+         case 3:
+            System.out.println("");
+            break;
+         case 4:
+            System.out.println("What is the new Tournament name?");
+            String newTournamentName = console.nextLine();
+            tournamentList.get(targetTournament + 1).setLocation(newTournamentName);
+      
+      }
    }
    
    

@@ -33,6 +33,7 @@ public class Discipline {
       this.listOfMembers = listOfMembers;
    }
    
+   
    //A toString method to make the object print itself.
    public String toString() {
       return "Discipline Type: " + disciplineType + "ListOfMembers: " + listOfMembers;
