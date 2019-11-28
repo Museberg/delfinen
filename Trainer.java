@@ -11,8 +11,6 @@ public class Trainer extends Staff{
         this.isOver18 = isOver18;
     }
     
-    // Methods
-    
     // Getters
     
     public String getTeamName() {

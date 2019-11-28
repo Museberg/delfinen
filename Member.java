@@ -74,19 +74,23 @@ public class Member{
         this.arrears = arrears;
     }
 
-    public static void makeNewMember(ArrayList<Member> memberA){
-        System.out.println("Full name: ");
-        String fullName = InputHelper.getNameFromUser();
+    public static Member makeNew(ArrayList<Member> memberA){
+        System.out.println("Full name:");
+        String fullName = InputHelper.getStringFromUser("name");
 
-        System.out.println("Adress: ");
-        String adress = InputHelper.getAddressFromUser();
+        System.out.println("Adress:");
+        String address = InputHelper.getAddressFromUser();
 
-        System.out.println("Phone number: ");
+        System.out.println("Phone number:");
         int phoneNumber = InputHelper.getPhoneNumberFromUser();
+
+        System.out.println("Birthdate. Please type as dd/mm yyyy");
+        String birthDate = DateHelper.dateToString(DateHelper.getValidDateFromUser());
 
         System.out.printf("Passive or active member?%n%d for active%n%d for passive", 1, 2);
         boolean membershipStatus = InputHelper.getOptionFromUser(1, 2) == 1;
 
+        return new Member(fullName, address, phoneNumber, birthDate, membershipStatus, false);
     }
 
     public String toString(){
