@@ -1,4 +1,5 @@
 import java.util.*;
+import java.time.*;
 import java.time.format.*;
 
 public class Member{
@@ -15,7 +16,6 @@ public class Member{
         this.phoneNumber = phoneNumber;
         this.birthDate = DateHelper.parseDate(birthDate);
         this.membershipStatus = membershipStatus;
-        this.ageGroup = ageGroup;
     }
 
     public String getFullName(){
@@ -24,18 +24,14 @@ public class Member{
     public String getAdress(){
         return adress;
     }
-    public String getPhoneNumber(){
+    public int getPhoneNumber(){
         return phoneNumber;
     }
     public int getAge(){
-
+        return 2; // Temp value
     }
     public String getMembershipStatus(){
         return membershipStatus;
-    }
-
-    public String getAgeGroup(){
-        return ageGroup;
     }
 
     public void setFullName(String fullName){
@@ -44,17 +40,11 @@ public class Member{
     public void setAdress(String adress){
         this.adress = adress;
     }
-    public void setPhoneNumber(String phoneNumber){
+    public void setPhoneNumber(int phoneNumber){
         this.phoneNumber = phoneNumber;
-    }
-    public void setAge(int age){
-        this.age = age;
     }
     public void setMembershipStatus(String membershipStatus){
         this.membershipStatus = membershipStatus;
-    }
-    public void setAgeGroup(String ageGroup){
-        this.ageGroup = ageGroup;
     }
 
     public static void makeNewMember(ArrayList<Member> memberA){
@@ -65,12 +55,12 @@ public class Member{
         System.out.println("Adress: ");
         String adress = console.nextLine();
         System.out.println("Phone number: ");
-        String phoneNumber = console.nextLine();
+        int phoneNumber = console.nextInt();
         System.out.println("Age: ");
-        int age = console2.nextInt();
         System.out.println("Active or passive membership?(type a for active and p for passive): ");
         String membershipStatus = console.nextLine();
         String ageGroup = "";
+        /*
         if (age >= 18 || age <= 60){
             ageGroup = "Senior";
         }
@@ -83,10 +73,7 @@ public class Member{
 
         Member temp = new Member(fullName, adress, phoneNumber, age, membershipStatus, ageGroup);
         memberA.add(temp);
+        */
 }
-
-    public String toString(){
-        return (fullName + "\n" + adress + "\n" + phoneNumber + "\n" + age + "\n" + membershipStatus + "\n" + ageGroup);
-    }
 
 }
