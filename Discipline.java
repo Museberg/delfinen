@@ -1,9 +1,9 @@
 public class Discipline {
    public enum DisciplineType {
-      Butterfly,
-      Backstroke,
-      Breaststroke,
-      Freestyle
+      BUTTERFLY,
+      BACKSTROKE,
+      BREASTSTROKE,
+      FREESTYLE
    }
    //Fields
    private DisciplineType disciplineType;
