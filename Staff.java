@@ -1,20 +1,18 @@
+import java.util.*;
+
 public class Staff {
 
     // Fields
     private String fullName;
     private String title;
-    private String street;
-    private String city;
-    private int zip;
+    private String address;
     private int phoneNumber;
     
     // Constructor
-    public Staff(String fullName, String title, String street, String city, int zip, int phoneNumber) {
+    public Staff(String fullName, String title, String address, int phoneNumber) {
         this.fullName = fullName;
         this.title = title;
-        this.street = street;
-        this.city = city;
-        this.zip = zip;
+        this.address = address;
         this.phoneNumber = phoneNumber;
     }
     
@@ -29,16 +27,8 @@ public class Staff {
         return title;
     }
     
-    public String getStreet() {
-        return street;
-    }
-    
-    public String getCity() {
-        return city;
-    }
-    
-    public int getZip() {
-        return zip;
+    public String getAddress() {
+        return address;
     }
     
     public int getPhoneNumber() {
@@ -54,19 +44,27 @@ public class Staff {
         this.title = title;
     }
     
-    public void getStreet(String street) {
-        this.street = street;
-    }
-    
-    public void getCity(String city) {
-        this.city = city;
-    }
-    
-    public void getZip(int zip) {
-        this.zip = zip;
+    public void getAddress(String address) {
+        this.address = address;
     }
     
     public void getPhoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+    
+    // Make method
+    public static void makeNewStaff(ArrayList<Staff> staffA) {
+        System.out.println("Full name: ");
+        String fullName = InputHelper.getStringFromUser();
+        
+        System.out.println("Title: ");
+        String title = InputHelper.getStringFromUser();
+
+        System.out.println("Adress: ");
+        String adress = InputHelper.getAddressFromUser();
+
+        System.out.println("Phone number: ");
+        int phoneNumber = InputHelper.getPhoneNumberFromUser();
+
     }
 }

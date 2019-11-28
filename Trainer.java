@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Trainer extends Staff{
 
     // Fields
@@ -31,5 +33,26 @@ public class Trainer extends Staff{
     
     public void setIsOver18(boolean isOver18) {
         this.isOver18 = isOver18;
+    }
+    
+    // Create trainer
+    public static void makeNewTrainer(ArrayList<Staff> staffA) {
+        System.out.println("Full name: ");
+        String fullName = InputHelper.getStringFromUser();
+        
+        System.out.println("Title: ");
+        String title = InputHelper.getStringFromUser();
+
+        System.out.println("Adress: ");
+        String adress = InputHelper.getAddressFromUser();
+
+        System.out.println("Phone number: ");
+        int phoneNumber = InputHelper.getPhoneNumberFromUser();
+        
+        System.out.println("Team name: ");
+        String teamName = InputHelper.getStringFromUser();
+        
+        System.out.printf("Junior or senior team?%n%d for active%n%d for passive", 1, 2);
+        boolean membershipStatus = InputHelper.getOptionFromUser(1, 2) == 1;
     }
 }
