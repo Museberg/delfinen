@@ -13,4 +13,23 @@ public class Trainer extends Staff{
     
     // Methods
     
+    // Getters
+    
+    public String getTeamName() {
+        return teamName;
+    }
+    
+    public boolean getIsOver18() {
+        return isOver18;
+    }
+    
+    // Setters
+    
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+    
+    public void setIsOver18(boolean isOver18) {
+        this.isOver18 = isOver18;
+    }
 }
