@@ -19,4 +19,54 @@ public class Staff {
     }
     
     // Methods
+    
+    // Getters
+    public String getFullName() {
+        return fullName;
+    }
+    
+    public String getTitle() {
+        return title;
+    }
+    
+    public String getStreet() {
+        return street;
+    }
+    
+    public String getCity() {
+        return city;
+    }
+    
+    public int getZip() {
+        return zip;
+    }
+    
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+    
+    // Setters
+    public void getFullName(String fullName) {
+        this.fullName = fullName;
+    }
+    
+    public void getTitle(String title) {
+        this.title = title;
+    }
+    
+    public void getStreet(String street) {
+        this.street = street;
+    }
+    
+    public void getCity(String city) {
+        this.city = city;
+    }
+    
+    public void getZip(int zip) {
+        this.zip = zip;
+    }
+    
+    public void getPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }
