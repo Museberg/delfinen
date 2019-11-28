@@ -32,7 +32,7 @@ public class Tournament {
    //Setter methods - mutators
    
    public void setTime(double time) {
-      this.time = time; // By using keyword "This.", the field time now has a new value, that overlaps the old value.
+      this.time = time; //By using keyword "This.", the field time now has a new value, that overlaps the old value.
    }
    
    public void setLocation(String Location) {
