@@ -19,8 +19,8 @@ public class DateHelper{
   }
 
 
-  public static long getDays(LocalDate startDate, LocalDate endDate){
-    return Period.between(startDate, endDate).getDays();
+  public static int getDays(LocalDate startDate, LocalDate endDate){
+    return (int) Period.between(startDate, endDate).getDays();
   }
 
   public static LocalDate parseDate(String dateStr){
