@@ -18,12 +18,12 @@
         return true;
     }
 
-    public static LocalDate getCurrentDay(){
-        return LocalDate.now();
-    }
-
     public static int getDays(LocalDate startDate, LocalDate endDate){
         return (int) Period.between(startDate, endDate).getDays();
+    }
+
+    public static int getAge(LocalDate birthDate){
+        return (int) Period.between(birthDate, LocalDate.now()).getYears();
     }
 
     public static LocalDate parseDate(String dateStr){
