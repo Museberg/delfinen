@@ -1,62 +1,56 @@
 import java.util.*;
 
 public class CompSwimmer extends Member{
-    private String trainerName;
-    private String team;
-    private String swimmingDicipline;
+    private Trainer trainer;
+    private Discipline.DisciplineType swimmingDiscipline;
    
-    public CompSwimmer(String fullName, String adress, int phoneNumber, String birthDate, String membershipStatus, boolean arrears, String trainerName, String team, String swimmingDicipline){
-        super(fullName, adress, phoneNumber, birthDate, membershipStatus, arrears);
-        this.trainerName = trainerName;
-        this.team = team;
-        this.swimmingDicipline = swimmingDicipline;
+    public CompSwimmer(String fullName, String address, int phoneNumber, String birthDate, boolean membershipStatus, boolean arrears, Trainer trainer, String teamName, Discipline.DisciplineType swimmingDiscipline){
+        super(fullName, address, phoneNumber, birthDate, membershipStatus, arrears);
+        this.trainer = trainer; 
+        this.swimmingDiscipline = swimmingDiscipline;
     }
    
     public String getTrainerName(){
-        return trainerName;
+        return trainer.getFullName();
     }
-    public String getTeam(){
-        return team;
-    }
-    public String getSwimmingDiciplie(){
-        return swimmingDicipline;
+    public Discipline.DisciplineType getSwimmingDiscipline(){
+        return swimmingDiscipline;
     }
    
-    public void setTrainerName(String trainerName){
-        this.trainerName = trainerName;
-    }
-    public void setTeam(String team){
-        this.team = team;
-    }
-    public void setSwimmingDicipline(String swimmingDicipline){
-        this.swimmingDicipline = swimmingDicipline;
+    // public void setTrainerName(String trainerName){
+    //     this.trainerName = trainerName;
+    // }
+    public void setSwimmingDiscipline(Discipline.DisciplineType swimmingDiscipline){
+        this.swimmingDiscipline = swimmingDiscipline;
     }
    
-    public static void makeNewCompSwimmer(ArrayList<CompSwimmer> proSwimmerA){
-        Scanner console = new Scanner(System.in);
-        Scanner console2 = new Scanner(System.in);
-        System.out.println("Full name: ");
-        String fullName = console.nextLine();
-        System.out.println("Adress: ");
-        String adress = console.nextLine();
-        System.out.println("Phone number: ");
-        String phoneNumber = console.nextLine();
-        System.out.println("Age: ");
-        //int age = console2.nextInt(); relevant?
-        System.out.println("Active or passive membership?(type a for active and p for passive): ");
-        String membershipStatus = console.nextLine();
-        System.out.println("Trainer name: ");
-        String trainerName = console.nextLine();
-        System.out.println("Team: ");
-        String team = console.nextLine();
-        System.out.println("Swimming dicipline: ");
-        String swimmingDicipline = console.nextLine();
+    public static void makeNew(ArrayList<CompSwimmer> compSwimmerA, ArrayList<Trainer> trainerA){
+        System.out.println("Full name:");
+        String fullName = InputHelper.getStringFromUser("name");
+
+        System.out.println("Adress:");
+        String adress = InputHelper.getAddressFromUser();
+
+        System.out.println("Phone number:");
+        int phoneNumber = InputHelper.getPhoneNumberFromUser();
+
+        System.out.println("Birthdate. Please type as dd/mm yyyy");
+        String birthDate = DateHelper.dateToString(DateHelper.getValidDateFromUser());
+
+        System.out.printf("Passive or active member?%n%d for active%n%d for passive", 1, 2);
+        boolean membershipStatus = InputHelper.getOptionFromUser(1, 2) == 1;
+
+        System.out.println("Please select a trainer:");
+        int i = 0;
+        for(Trainer trainer : trainerA){
+            System.out.printf("%s %d%n", trainer.getFullName(), i);
+        }
+        int option = InputHelper.getOptionFromUser(1, trainerA.size());
+        Trainer trainer = trainerA.get(i - 1);
+
+        System.out.println("Swimming discipline:");
           
-        /*ProSwimmer temp = new ProSwimmer(fullName, adress, phoneNumber, age, membershipStatus, trainerName, team, swimmingDicipline);
+        /*ProSwimmer temp = new ProSwimmer(fullName, adress, phoneNumber, age, membershipStatus, trainerName, teamName, swimmingDicipline);
         proSwimmerA.add(temp);*/
-    }
-   
-    public String toString(){
-        return (getFullName() + "\n" + getAdress() + "\n" + getPhoneNumber() + "\n" + getAge() + "\n" + getMembershipStatus() + "\n" + trainerName + "\n" + team + "\n" + swimmingDicipline);
     }
 }

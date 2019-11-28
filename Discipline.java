@@ -1,5 +1,5 @@
 public class Discipline {
-   public enum DisciplineType {
+   public static enum DisciplineType {
       BUTTERFLY,
       BACKSTROKE,
       BREASTSTROKE,

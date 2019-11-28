@@ -55,13 +55,13 @@ public class InputHelper{
         return scanInput.nextDouble();
     }
 
-    public static String getNameFromUser(){
+    public static String getStringFromUser(String title){
         Scanner scanInput = new Scanner(System.in);
 
-        System.out.printf("Please enter the full name of the person&n");
+        System.out.printf("Please enter the " + title + " of the person&n");
         String name = scanInput.next();
         while(name.matches(".*\\d.*")){
-            System.out.printf("A name cannot contain a number! Please try again%n");
+            System.out.printf("A " + title + " cannot contain a number! Please try again%n");
             name = scanInput.next();
         }
         return name;
