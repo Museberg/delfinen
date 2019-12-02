@@ -4,7 +4,7 @@ public class CompSwimmer extends Member{
     private Trainer trainer;
     private Discipline.DisciplineType swimmingDiscipline;
    
-    public CompSwimmer(String fullName, String address, int phoneNumber, String birthDate, boolean membershipStatus, boolean arrears, Trainer trainer, String teamName, Discipline.DisciplineType swimmingDiscipline){
+    public CompSwimmer(String fullName, String address, int phoneNumber, String birthDate, boolean membershipStatus, boolean arrears, Trainer trainer, Discipline.DisciplineType swimmingDiscipline){
         super(fullName, address, phoneNumber, birthDate, membershipStatus, arrears);
         this.trainer = trainer; 
         this.swimmingDiscipline = swimmingDiscipline;
@@ -16,10 +16,6 @@ public class CompSwimmer extends Member{
     public Discipline.DisciplineType getSwimmingDiscipline(){
         return swimmingDiscipline;
     }
-   
-    // public void setTrainerName(String trainerName){
-    //     this.trainerName = trainerName;
-    // }
     public void setSwimmingDiscipline(Discipline.DisciplineType swimmingDiscipline){
         this.swimmingDiscipline = swimmingDiscipline;
     }
@@ -28,8 +24,8 @@ public class CompSwimmer extends Member{
         System.out.println("Full name:");
         String fullName = InputHelper.getStringFromUser("name");
 
-        System.out.println("Adress:");
-        String adress = InputHelper.getAddressFromUser();
+        System.out.println("Address:");
+        String address = InputHelper.getAddressFromUser();
 
         System.out.println("Phone number:");
         int phoneNumber = InputHelper.getPhoneNumberFromUser();
@@ -49,8 +45,11 @@ public class CompSwimmer extends Member{
         Trainer trainer = trainerA.get(i - 1);
 
         System.out.println("Swimming discipline:");
+        for(Discipline.DisciplineType d : Discipline.DisciplineType.values()){
+            System.out.println(d);
+        }
           
-        /*ProSwimmer temp = new ProSwimmer(fullName, adress, phoneNumber, age, membershipStatus, trainerName, teamName, swimmingDicipline);
-        proSwimmerA.add(temp);*/
+        //ProSwimmer temp = new ProSwimmer(fullName, address, phoneNumber, age, membershipStatus, swimmingDicipline);
     }
 }
+

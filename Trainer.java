@@ -7,8 +7,8 @@ public class Trainer extends Staff{
     private boolean isOver18;
     
     // Constructor
-    public Trainer(String fullName, String title, String street, String city, int zip, int phoneNumber, String teamName, boolean isOver18) {
-        super(fullName, title, street, city, zip, phoneNumber);
+    public Trainer(String fullName, String title, String address, int phoneNumber, String teamName, boolean isOver18) {
+        super(fullName, title, address, phoneNumber);
         this.teamName = teamName;
         this.isOver18 = isOver18;
     }
@@ -36,10 +36,10 @@ public class Trainer extends Staff{
     // Create trainer
     public static void makeNewTrainer(ArrayList<Staff> staffA) {
         System.out.println("Full name: ");
-        String fullName = InputHelper.getStringFromUser();
+        String fullName = InputHelper.getStringFromUser("name");
         
         System.out.println("Title: ");
-        String title = InputHelper.getStringFromUser();
+        String title = InputHelper.getStringFromUser("title");
 
         System.out.println("Adress: ");
         String adress = InputHelper.getAddressFromUser();
@@ -48,7 +48,7 @@ public class Trainer extends Staff{
         int phoneNumber = InputHelper.getPhoneNumberFromUser();
         
         System.out.println("Team name: ");
-        String teamName = InputHelper.getStringFromUser();
+        String teamName = InputHelper.getStringFromUser("team name");
         
         System.out.printf("Junior or senior team?%n%d for active%n%d for passive", 1, 2);
         boolean membershipStatus = InputHelper.getOptionFromUser(1, 2) == 1;

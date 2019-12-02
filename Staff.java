@@ -55,10 +55,10 @@ public class Staff {
     // Make method
     public static void makeNewStaff(ArrayList<Staff> staffA) {
         System.out.println("Full name: ");
-        String fullName = InputHelper.getStringFromUser();
+        String fullName = InputHelper.getStringFromUser("name");
         
         System.out.println("Title: ");
-        String title = InputHelper.getStringFromUser();
+        String title = InputHelper.getStringFromUser("title");
 
         System.out.println("Adress: ");
         String adress = InputHelper.getAddressFromUser();
