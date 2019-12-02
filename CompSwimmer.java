@@ -20,7 +20,7 @@ public class CompSwimmer extends Member{
         this.swimmingDiscipline = swimmingDiscipline;
     }
    
-    public static void makeNew(ArrayList<CompSwimmer> compSwimmerA, ArrayList<Trainer> trainerA){
+    public static void makeNewCompSwimmer(ArrayList<Trainer> trainerA){
         System.out.println("Full name:");
         String fullName = InputHelper.getStringFromUser("name");
 
@@ -33,23 +33,29 @@ public class CompSwimmer extends Member{
         System.out.println("Birthdate. Please type as dd/mm yyyy");
         String birthDate = DateHelper.dateToString(DateHelper.getValidDateFromUser());
 
-        System.out.printf("Passive or active member?%n%d for active%n%d for passive", 1, 2);
+        System.out.printf("Passive or active member?%n%d for active%n%d for passive%n", 1, 2);
         boolean membershipStatus = InputHelper.getOptionFromUser(1, 2) == 1;
 
         System.out.println("Please select a trainer:");
-        int i = 0;
+        int i = 1;
         for(Trainer trainer : trainerA){
-            System.out.printf("%s %d%n", trainer.getFullName(), i);
+            System.out.printf("%d - %s%n", i, trainer.getFullName());
+            i++;
         }
         int option = InputHelper.getOptionFromUser(1, trainerA.size());
-        Trainer trainer = trainerA.get(i - 1);
+        Trainer trainer = trainerA.get(option - 1);
 
         System.out.println("Swimming discipline:");
+        i = 1;
         for(Discipline.DisciplineType d : Discipline.DisciplineType.values()){
-            System.out.println(d);
+            String dis = d.name();
+            System.out.println(i + " - " + dis.substring(0, 1).toUpperCase() + dis.substring(1).toLowerCase());
+            i++;
         }
+        option = InputHelper.getOptionFromUser(1, Discipline.DisciplineType.values().length);
+        Discipline.DisciplineType swimmingDiscipline = Discipline.DisciplineType.values()[option - 1];
           
-        //ProSwimmer temp = new ProSwimmer(fullName, address, phoneNumber, age, membershipStatus, swimmingDicipline);
+        return new CompSwimmer(fullName, address, phoneNumber, birthDate, membershipStatus, false, trainer, swimmingDicipline);
     }
 }
 

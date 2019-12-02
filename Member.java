@@ -75,7 +75,7 @@ public class Member{
         this.arrears = arrears;
     }
 
-    public static Member makeNew(ArrayList<Member> memberA){
+    public static Member makeNewMember(ArrayList<Member> memberA){
         System.out.println("Full name:");
         String fullName = InputHelper.getStringFromUser("name");
 
