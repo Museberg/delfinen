@@ -5,7 +5,6 @@ public class Discipline {
       BREASTSTROKE,
       FREESTYLE
    }
-   
    //Fields
    private DisciplineType disciplineType;
    private String listOfMembers; //Husk at tilnytte til den rigtige liste.
