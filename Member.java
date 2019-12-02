@@ -22,6 +22,7 @@ public class Member{
         this.phoneNumber = phoneNumber;
         this.birthDate = DateHelper.parseDate(birthDate);
         this.membershipStatus = membershipStatus;
+        this.arrears = arrears;
     }
 
     // Getters
