@@ -95,7 +95,7 @@ public class CompSwimmer extends Member{
             case 7: // Change swimming discipline
 
                 break;
-            case default:
+            default:
                 break;
         }
 
