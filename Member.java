@@ -22,6 +22,7 @@ public class Member{
         this.phoneNumber = phoneNumber;
         this.birthDate = DateHelper.parseDate(birthDate);
         this.membershipStatus = membershipStatus;
+        this.arrears = arrears;
     }
 
     // Getters
@@ -89,8 +90,10 @@ public class Member{
 
         System.out.printf("Passive or active member?%n%d for active%n%d for passive", 1, 2);
         boolean membershipStatus = InputHelper.getOptionFromUser(1, 2) == 1;
+        
+        boolean arrears = false;
 
-        return new Member(fullName, address, phoneNumber, birthDate, membershipStatus, false);
+        return new Member(fullName, address, phoneNumber, birthDate, membershipStatus, arrears);
     }
 
     public String toString(){
@@ -98,7 +101,8 @@ public class Member{
             "\nName: " + fullName +
             "\nAddress: " + address +
             "\nPhone Number: " + phoneNumber +
-            "\nMembershipstatus: " + (membershipStatus ? "Active" : "Passive");
+            "\nMembershipstatus: " + (membershipStatus ? "Active" : "Passive") +
+            "\nArrears: " + arrears;
     }
 
 }
