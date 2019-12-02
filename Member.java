@@ -29,7 +29,7 @@ public class Member{
     public String getFullName(){
         return fullName;
     }
-    public String getAdress(){
+    public String getAddress(){
         return address;
     }
     public int getPhoneNumber(){
@@ -37,6 +37,9 @@ public class Member{
     }
     public int getAge(){
         return DateHelper.getAge(birthDate);
+    }
+    public LocalDate getBirthDate(){
+        return birthDate;
     }
     public boolean getMembershipStatus(){
         return membershipStatus;

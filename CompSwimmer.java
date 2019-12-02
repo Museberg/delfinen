@@ -13,6 +13,9 @@ public class CompSwimmer extends Member{
     public String getTrainerName(){
         return trainer.getFullName();
     }
+    public Trainer getTrainer(){
+        return trainer;
+    }
     public Discipline.DisciplineType getSwimmingDiscipline(){
         return swimmingDiscipline;
     }
@@ -20,7 +23,7 @@ public class CompSwimmer extends Member{
         this.swimmingDiscipline = swimmingDiscipline;
     }
    
-    public static void makeNewCompSwimmer(ArrayList<Trainer> trainerA){
+    public static CompSwimmer makeNewCompSwimmer(ArrayList<Trainer> trainerA){
         System.out.println("Full name:");
         String fullName = InputHelper.getStringFromUser("name");
 
@@ -48,14 +51,54 @@ public class CompSwimmer extends Member{
         System.out.println("Swimming discipline:");
         i = 1;
         for(Discipline.DisciplineType d : Discipline.DisciplineType.values()){
-            String dis = d.name();
-            System.out.println(i + " - " + dis.substring(0, 1).toUpperCase() + dis.substring(1).toLowerCase());
+            System.out.println(i + " - " + Helper.getEnumAsString(d.name()));
             i++;
         }
         option = InputHelper.getOptionFromUser(1, Discipline.DisciplineType.values().length);
         Discipline.DisciplineType swimmingDiscipline = Discipline.DisciplineType.values()[option - 1];
           
-        return new CompSwimmer(fullName, address, phoneNumber, birthDate, membershipStatus, false, trainer, swimmingDicipline);
+        return new CompSwimmer(fullName, address, phoneNumber, birthDate, membershipStatus, false, trainer, swimmingDiscipline);
+    }
+
+    public void editCompSwimmer(ArrayList<Trainer> trainerA){
+        System.out.println("What do you want to edit?");
+
+        System.out.printf("%d - Full name (%s)%n", 1, this.getFullName());
+        System.out.printf("%d - Address (%s)%n", 2, this.getAddress());
+        System.out.printf("%d - Phone Number (%s)%n", 3, this.getPhoneNumber());
+        System.out.printf("%d - Birthdate (%s)%n", 4, DateHelper.dateToString(this.getBirthDate()));
+        System.out.printf("%d - Membership Status (%s)%n", 5, (this.getMembershipStatus() ? "Active" : "Passive"));
+        System.out.printf("%d - Trainer (%s)%n", 6, this.getTrainer().getFullName());
+        System.out.printf("%d - Swimming Discipline (%s)%n", 7, Helper.getEnumAsString(getSwimmingDiscipline().name()));
+
+        int option = InputHelper.getOptionFromUser(1, 7);
+
+        switch(option){
+            case 1: // Change name
+
+                break;
+            case 2: // Change address
+
+                break;
+            case 3: // Phone Number
+
+                break;
+            case 4: // Change birthdate
+
+                break;
+            case 5: // Change membership status
+
+                break;
+            case 6: // Change trainer
+
+                break;
+            case 7: // Change swimming discipline
+
+                break;
+            case default:
+                break;
+        }
+
     }
 }
 
