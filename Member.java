@@ -7,7 +7,7 @@ public class Member{
     private String address;
     private int phoneNumber;
     private LocalDate birthDate;
-    private boolean membershipStatus;
+    private boolean membershipStatus; // False is passive, True is active member
     private boolean arrears; // Has the member paid their membership admission?
 
     public enum AgeGroup{
