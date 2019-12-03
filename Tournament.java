@@ -88,12 +88,14 @@ public class Tournament {
             tournamentList.get(targetTournament + 1).setTime(newTime);
             break;
          case 2:
-            System.out.println("Set the new location ");
+            System.out.println("Set the new location:");
             String newLocation = console.nextLine();
             tournamentList.get(targetTournament + 1).setLocation(newLocation);
             break;
          case 3:
-            System.out.println("");
+            System.out.println("Set the new placements: ");
+            int newPlacement = console.nextInt();
+            tournamentList.get(targetTournament + 1).setPlacement(newPlacement);
             break;
          case 4:
             System.out.println("What is the new Tournament name?");
