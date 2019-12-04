@@ -21,7 +21,7 @@ public class DolphinMenu {
             System.out.println("| 0 - Exit program          |");
             System.out.println("|---------------------------|\n");
             System.out.print("Select: ");
-            InputHelper.getOptionFromUser(0,3);
+            int menuChoice = InputHelper.getOptionFromUser(0,3);
             switch(menuChoice) {
                 case 1: 
                     subMenu("trainer");
@@ -53,7 +53,7 @@ public class DolphinMenu {
             System.out.println("3 - Display " + type + " information ");
             System.out.println("0 - Back to main menu                ");
             System.out.print("\nSelect: ");
-            InputHelper.getOptionFromUser(0,3);
+             int menuChoice = InputHelper.getOptionFromUser(0,3);
             switch(menuChoice) {
                 case 1:
                     if(type.equals("trainer")) {

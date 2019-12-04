@@ -24,10 +24,6 @@ public class Trainer{
         return fullName;
     }
     
-    public String getTitle() {
-        return title;
-    }
-    
     public String getAddress() {
         return address;
     }
@@ -49,10 +45,6 @@ public class Trainer{
         this.fullName = fullName;
     }
     
-    public void getTitle(String title) {
-        this.title = title;
-    }
-    
     public void getAddress(String address) {
         this.address = address;
     }
@@ -70,15 +62,12 @@ public class Trainer{
     }
     
     // Create trainer
-    public static void makeNewTrainer(ArrayList<Staff> staffA) {
+    public static Trainer makeNewTrainer() {
         System.out.println("Full name: ");
         String fullName = InputHelper.getStringFromUser("name");
         
-        System.out.println("Title: ");
-        String title = InputHelper.getStringFromUser("title");
-
-        System.out.println("Adress: ");
-        String adress = InputHelper.getAddressFromUser();
+        System.out.println("Address: ");
+        String address = InputHelper.getAddressFromUser();
 
         System.out.println("Phone number: ");
         int phoneNumber = InputHelper.getPhoneNumberFromUser();
@@ -88,5 +77,7 @@ public class Trainer{
         
         System.out.printf("Junior or senior team?%n%d for active%n%d for passive", 1, 2);
         boolean membershipStatus = InputHelper.getOptionFromUser(1, 2) == 1;
+        
+        return new Trainer(fullName, address, phoneNumber, teamName, membershipStatus);
     }
 }
