@@ -83,7 +83,7 @@ public class Tournament {
       int choice = InputHelper.getOptionFromUser(1,4);
       switch(choice) {
          case 1:
-            System.out.println("What is the new time? ");
+            System.out.println("What is the new time?");
             Double newTime = InputHelper.getDoubleFromUser();
             tournamentList.get(targetTournament + 1).setTime(newTime);
             break;
