@@ -99,5 +99,14 @@ public class CompSwimmer extends Member{
         }
 
     }
+    public String toString(){
+        return "Competitive swimmer" +
+            "\nName: " + getFullName() +
+            "\nAddress: " + getAddress() +
+            "\nPhone Number: " + getPhoneNumber() +
+            "\nMembershipstatus: " + (getMembershipStatus() ? "Active" : "Passive") +
+            "\nTrainer: " + trainer.getFullName() +
+            "\nSwimming Dicipline: " + swimmingDiscipline;
+    }
 }
 
