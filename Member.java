@@ -76,6 +76,9 @@ public class Member{
    public void setArrears(boolean arrears){
       this.arrears = arrears;
    }
+    public void setBirthDate(LocalDate birthDate){
+        this.birthDate = birthDate;
+    }
 
    public static Member makeNewMember(){
       System.out.println("Full name:");

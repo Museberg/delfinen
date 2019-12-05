@@ -1,38 +1,15 @@
 import java.util.*;
 
 public class CompSwimmer extends Member{
-   private Trainer trainer;
-   private Discipline.DisciplineType swimmingDiscipline;
+    private Trainer trainer;
+    private Discipline.DisciplineType swimmingDiscipline;
   
-   public CompSwimmer(String fullName, String address, int phoneNumber, String birthDate, boolean membershipStatus, boolean arrears, Trainer trainer, Discipline.DisciplineType swimmingDiscipline){
-      super(fullName, address, phoneNumber, birthDate, membershipStatus, arrears);
-      this.trainer = trainer; 
-      this.swimmingDiscipline = swimmingDiscipline;
-   }
-  
-   public String getTrainerName(){
-      return trainer.getFullName();
-   }
-   public Trainer getTrainer(){
-      return trainer;
-   }
-   public Discipline.DisciplineType getSwimmingDiscipline(){
-      return swimmingDiscipline;
-   }
-   public void setSwimmingDiscipline(Discipline.DisciplineType swimmingDiscipline){
-      this.swimmingDiscipline = swimmingDiscipline;
-   }
-  
-   public static CompSwimmer makeNewCompSwimmer(ArrayList<Trainer> trainerA){
-      System.out.println("Full name:");
-      String fullName = InputHelper.getStringFromUser("name");
-   
-
     public CompSwimmer(String fullName, String address, int phoneNumber, String birthDate, boolean membershipStatus, boolean arrears, Trainer trainer, Discipline.DisciplineType swimmingDiscipline){
         super(fullName, address, phoneNumber, birthDate, membershipStatus, arrears);
         this.trainer = trainer; 
         this.swimmingDiscipline = swimmingDiscipline;
     }
+
     // Getters
     public String getTrainerName(){
         return trainer.getFullName();

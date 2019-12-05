@@ -85,15 +85,8 @@ public class Trainer{
       return "Fullname: " + fullName + "\nAddress: " + address + "\nPhoneNumber: " + phoneNumber + "\nTeamname: " + teamName;
    }
    
-   public String toFile(){
-      return fullName + "\n" + address + "\n" +phoneNumber + "\n" +teamName;
-   }
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
-    }
-    
-    public void setIsOver18(boolean isOver18) {
-        this.isOver18 = isOver18;
+    public String toFile(){
+        return fullName + "\n" + address + "\n" +phoneNumber + "\n" +teamName;
     }
     
 

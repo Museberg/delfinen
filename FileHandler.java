@@ -4,7 +4,7 @@ public class FileHandler {
    
    // An efficient way of reloading the data when the program launches again
    // As it returns the data in the files to the ArrayList making it remember what was stored.
-   public static ArrayList<Tournament> readTournamentInfo(ArrayList<Tournament> tournamentA) throws FileNotFoundException {
+   /*public static ArrayList<Tournament> readTournamentInfo(ArrayList<Tournament> tournamentA) throws FileNotFoundException {
       Scanner input = new Scanner(new File("Tournament_Info.txt"));
       
       while(input.hasNextLine()) {
@@ -13,11 +13,12 @@ public class FileHandler {
          int placement = Integer.parseInt(input.nextLine());
          String tournamentName = input.nextLine();
       
-         Tournament temp = new Tournament(time, location, placement, tournamentName);
+         Tournament temp = new Tournament(location, tournamentName);
          tournamentA.add(temp);
       }
       return tournamentA;
-   }
+   }*/
+   // Change so it follows the new tournament class ^^^^
    
    public static ArrayList<Trainer> readTrainerInfo(ArrayList<Trainer> trainerA) throws FileNotFoundException {
       Scanner input = new Scanner(new File("Trainer_Info.txt"));

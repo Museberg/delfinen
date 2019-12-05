@@ -24,16 +24,15 @@ public class Discipline {
    public ArrayList<Member> getMemberA() {
       return memberA;
    }
-    public String getListOfMembers() {
-        return listOfMembers;
+    public ArrayList<Member> getListOfMembers() {
+        return memberA;
     }
     //Setter methods to translate the fields.
     public void setDisciplineType(DisciplineType disciplineType) {
         this.disciplineType = disciplineType;
     }
-   
     public void setListOfMembers(String listOfMembers) { // Husk at ændre fra string til ArrayList, når der er en liste.
-        this.listOfMembers = listOfMembers;
+        this.memberA = memberA;
     }
 
     // Prints list of discipline types and returns the discipline type selected by the user
@@ -48,9 +47,6 @@ public class Discipline {
         return DisciplineType.values()[InputHelper.getOptionFromUser(1, DisciplineType.values().length) - 1];
     }
    
-   public void setListOfMembers(String listOfMembers) { // Husk at ændre fra string til ArrayList, når der er en liste.
-      this.memberA = memberA;
-   }
    
    
    //A toString method to make the object print itself.

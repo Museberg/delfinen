@@ -35,7 +35,7 @@ public class Tournament {
      
    }
    
-   public static Tournament makeNewTournament(ArrayList<CompSwimmer> swimmerA) {
+   public static Tournament makeNewTournament(ArrayList<Member> memberA) {
       Scanner console = new Scanner(System.in);
 
       System.out.println("What is the name of the proceeding tournament? ");
@@ -49,8 +49,16 @@ public class Tournament {
 
       boolean addAnother;
       Map<CompSwimmer, LocalTime> participants = new HashMap <CompSwimmer, LocalTime>();
-      ArrayList<CompSwimmer> tempSwimmerA = swimmerA;
+      ArrayList<CompSwimmer> tempSwimmerA = new ArrayList<>();
 
+      // Creating list that only contains members who are competetive swimmers
+      for(int i = 0; i < memberA.size(); i++){
+         if(memberA.get(i) instanceof CompSwimmer){
+            tempSwimmerA.add((CompSwimmer) memberA.get(i));
+         }
+      }
+
+      System.out.println("Please select the participants of this tournament");
       do{
          CompSwimmer swimmer = CompSwimmer.letUserSelectCompSwimmer(tempSwimmerA, disciplineType);
          tempSwimmerA.remove(swimmer);
@@ -71,13 +79,12 @@ public class Tournament {
    
    /*public static void editTournament(ArrayList<Tournament> tournamentList){
       Scanner console = new Scanner(System.in);
-      for(int i = 0; i < tournamentList.size(); i++) {
-         System.out.println(i+1 + ". " + "Tournament Name: "+ tournamentList.get(i).getTournamentName());
-      }
-      System.out.println("\nFor which tournament would you like to edit? ");
-      int targetTournament = InputHelper.getIntFromUser() -1;
-      System.out.println("\n1. Time \n2. Location \n3. Placement \n4. TournamentName");
-      int choice = InputHelper.getOptionFromUser(1,4);
+
+      System.out.printf("%d - Change the tournament's name%n", 1);
+      System.out.printf("%d - Change the tournament's location%n,", 2);
+      System.out.printf("%d - Change the tournament's discipline. This also clears the list of participants%n", 3)
+      System.out.printf("%d - Change the participants of this tournament%n", 4);
+
       switch(choice) {
          case 1:
             System.out.println("What is the new time?");
@@ -100,10 +107,10 @@ public class Tournament {
             tournamentList.get(targetTournament + 1).setLocation(newTournamentName);
       
       }
-   }
+   }*/
    
    
-   public String toString() {
+   /*public String toString() {
       return "Time: " + time + "\nLocation: " + location + "\nPlacement: " + placement + ".place" + "\nTournament Name " + tournamentName;
    }*/
 }
