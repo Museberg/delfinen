@@ -4,21 +4,33 @@ public class FileHandler {
    
    // An efficient way of reloading the data when the program launches again
    // As it returns the data in the files to the ArrayList making it remember what was stored.
-   /*public static ArrayList<Tournament> readTournamentInfo(ArrayList<Tournament> tournamentA) throws FileNotFoundException {
-      Scanner input = new Scanner(new File("Tournament_Info.txt"));
+    /*public static ArrayList<Tournament> readTournamentInfo(ArrayList<Tournament> tournamentA) throws FileNotFoundException {
+        Scanner input = new Scanner(new File("Tournament_Info.txt"));
+        // input.setDelimiter(", ");
+        while(input.hasNextLine()) {
+        String tournamentName = input.nextLine();
+        String location = input.nextLine();
+        Discipline.DisciplineType disciplineType = Discipline.DisciplineType.valueOf(input.nextLine());
+        
+        String fullName = input.nextLine(); 
+        String address = input.nextLine();
+        int phoneNumber = Integer.parseInt(input.nextLine());
+        String birthDate = input.nextLine();
+        boolean membershipStatus = input.nextBoolean();
+        boolean arrears = input.nextBoolean();
+        String tName = input.nextLine();
+        String tAddress = input.nextLine();
+        int tPhoneNumber = Integer.parseInt(input.nextLine());
+        String teamName = input.nextLine();
+        boolean isOver18 = input.nextBoolean();
+        Trainer tempT = new Trainer(tName, tAddress, tPhoneNumber, teamName, isOver18); 
       
-      while(input.hasNextLine()) {
-         double time = Double.parseDouble(input.nextLine());
-         String location = input.nextLine();
-         int placement = Integer.parseInt(input.nextLine());
-         String tournamentName = input.nextLine();
-      
-         Tournament temp = new Tournament(location, tournamentName);
-         tournamentA.add(temp);
-      }
-      return tournamentA;
-   }*/
-   // Change so it follows the new tournament class ^^^^
+        Tournament temp = new Tournament(tournamentName, location, disciplineType,);
+        tournamentA.add(temp);
+        }
+    return tournamentA;
+    }
+    // Change so it follows the new tournament class ^^^^*/
    
    public static ArrayList<Trainer> readTrainerInfo(ArrayList<Trainer> trainerA) throws FileNotFoundException {
       Scanner input = new Scanner(new File("Trainer_Info.txt"));
