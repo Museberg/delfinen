@@ -111,5 +111,14 @@ public class CompSwimmer extends Member{
         System.out.print("Select: ");
         return swimmerA.get(InputHelper.getOptionFromUser(1, swimmers) - 1);
     }
+    public String toString(){
+        return "Competitive swimmer" +
+            "\nName: " + getFullName() +
+            "\nAddress: " + getAddress() +
+            "\nPhone Number: " + getPhoneNumber() +
+            "\nMembershipstatus: " + (getMembershipStatus() ? "Active" : "Passive") +
+            "\nTrainer: " + trainer.getFullName() +
+            "\nSwimming Dicipline: " + swimmingDiscipline;
+    }
 }
 
