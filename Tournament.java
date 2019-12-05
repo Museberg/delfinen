@@ -1,30 +1,23 @@
 import java.util.*;
+import java.time.*;
+import java.time.format.*;
 
 public class Tournament {
- //Fields til vores tournament objekt.
-   private double time;
-   private String location;
-   private int placement;
+   //Fields for our tournament object.
    private String tournamentName;
+   private String location;
+   private Discipline.DisciplineType disciplineType;
+   private Map<CompSwimmer, LocalTime> participants = new HashMap <CompSwimmer, LocalTime>();
    
-   public Tournament(double time, String location, int placement, String tournamentName) {
-      this.time = time;
+   public Tournament(String tournamentName, String location, Discipline.DisciplineType disciplineType, Map<CompSwimmer, LocalTime> participants) {
       this.location = location;
-      this.placement = placement;
       this.tournamentName = tournamentName;
+      this.disciplineType = disciplineType;
    }
    //Getter methods - accessors
    
-   public double getTime() {
-      return time;
-   }
-   
    public String getLocation() {
       return location;
-   }
-   
-   public int getPlacement() {
-      return placement;
    }
    
    public String getTournamentName() {
@@ -33,16 +26,8 @@ public class Tournament {
    
    //Setter methods - mutators
    
-   public void setTime(double time) {
-      this.time = time; //By using keyword "This.", the field time now has a new value, that overlaps the old value.
-   }
-   
    public void setLocation(String Location) {
       this.location = location;
-   }
-   
-   public void setPlacement(int placement) {
-      this.placement = placement;
    }
    
    public void setTournamentName(String tournamentName) {
@@ -50,29 +35,41 @@ public class Tournament {
      
    }
    
-   public static void createTournament(Scanner console, ArrayList<Tournament> tournamentList) {
-      System.out.println("Weeeelcome to Tournament Section!");
-      System.out.print("What is the name of the proceeding tournament? ");
+   public static Tournament makeNewTournament(ArrayList<CompSwimmer> swimmerA) {
+      Scanner console = new Scanner(System.in);
+
+      System.out.println("What is the name of the proceeding tournament? ");
       String tournamentName = console.nextLine();
-      System.out.println("Your name has been given to be " + tournamentName);
-      System.out.print("Where is the tournament going to take place? ");
+
+      System.out.println("Where is the tournament going to take place? ");
       String location = console.nextLine();
-      System.out.println("Your tournament has been set to be in " + location);
-      System.out.print("What is the placement for the tournament? ");
-      int placement = InputHelper.getIntFromUser();
-      System.out.println("Your placement has been set to be " + placement);
-      System.out.println("What time should the tournament be? ");
-      System.out.println("The time should be formatted by hh,mm!");
-      double time = InputHelper.getDoubleFromUser();
+
+      System.out.println("Which type of discipline are they competing in?");
+      Discipline.DisciplineType disciplineType = Discipline.letUserSelectDisciplineType();
+
+      boolean addAnother;
+      Map<CompSwimmer, LocalTime> participants = new HashMap <CompSwimmer, LocalTime>();
+      ArrayList<CompSwimmer> tempSwimmerA = swimmerA;
+
+      do{
+         CompSwimmer swimmer = CompSwimmer.letUserSelectCompSwimmer(tempSwimmerA, disciplineType);
+         tempSwimmerA.remove(swimmer);
+
+         System.out.printf("What is %s's time? (mm:ss.SSS)%nTime: ", swimmer.getFullName());
+         LocalTime time = TimeHelper.getValidTimeFromUser();
+
+         // Adding swimmer with time to map
+         participants.put(swimmer, time);
+
+         System.out.printf("Do you wish to add another competitor to the tournament?%nPress %d for no%nPress %d for yes%nSelect: ", 0, 1);
+         addAnother = InputHelper.getOptionFromUser(0, 1) == 1;
+
+      }while(addAnother);
       
-      System.out.println();
-      Tournament temp = new Tournament(time, location, placement, tournamentName);  
-      System.out.println(temp);
-   
-      tournamentList.add(temp);
+      return new Tournament(tournamentName, location, disciplineType, participants);
    }
    
-   public static void editTournament(ArrayList<Tournament> tournamentList){
+   /*public static void editTournament(ArrayList<Tournament> tournamentList){
       Scanner console = new Scanner(System.in);
       for(int i = 0; i < tournamentList.size(); i++) {
          System.out.println(i+1 + ". " + "Tournament Name: "+ tournamentList.get(i).getTournamentName());
@@ -108,5 +105,5 @@ public class Tournament {
    
    public String toString() {
       return "Time: " + time + "\nLocation: " + location + "\nPlacement: " + placement + ".place" + "\nTournament Name " + tournamentName;
-   }
+   }*/
 }

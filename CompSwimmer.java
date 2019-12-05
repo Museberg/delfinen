@@ -97,7 +97,19 @@ public class CompSwimmer extends Member{
             default: // Do nothing
                 break;
         }
+    }
 
+    public static CompSwimmer letUserSelectCompSwimmer(ArrayList<CompSwimmer> swimmerA, Discipline.DisciplineType swimmingDiscipline){
+        int swimmers = swimmerA.size();
+        int i = 1;
+        for(CompSwimmer swimmer : swimmerA){
+            if(swimmer.getSwimmingDiscipline() == swimmingDiscipline){ // For arraylist use contains
+                System.out.printf("%d - %s%n", i, swimmer.getFullName());
+                i++;    
+            }
+        }
+        System.out.print("Select: ");
+        return swimmerA.get(InputHelper.getOptionFromUser(1, swimmers) - 1);
     }
 }
 
