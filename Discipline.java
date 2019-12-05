@@ -1,3 +1,4 @@
+import java.util.*;
 public class Discipline {
    public static enum DisciplineType {
       BUTTERFLY,
@@ -7,12 +8,12 @@ public class Discipline {
    }
    //Fields
    private DisciplineType disciplineType;
-   private String listOfMembers; //Husk at tilnytte til den rigtige liste.
+   private ArrayList<Member> memberA; //Husk at tilnytte til den rigtige liste.
    
    //Constructor
-   public Discipline(DisciplineType disciplineType, String listOfMembers) {
+   public Discipline(DisciplineType disciplineType, ArrayList<Member> memberA) {
       this.disciplineType = disciplineType;
-      this.listOfMembers = listOfMembers; 
+      this.memberA = memberA; 
    }
    
    //Getter methods to access the encapsulated fields
@@ -20,8 +21,8 @@ public class Discipline {
       return disciplineType;
    }
    
-   public String getListOfMembers() {
-      return listOfMembers;
+   public ArrayList<Member> getMemberA() {
+      return memberA;
    }
    
    //Setter methods to translate the fields.
@@ -30,12 +31,16 @@ public class Discipline {
    }
    
    public void setListOfMembers(String listOfMembers) { // Husk at ændre fra string til ArrayList, når der er en liste.
-      this.listOfMembers = listOfMembers;
+      this.memberA = memberA;
    }
    
    
    //A toString method to make the object print itself.
    public String toString() {
-      return "Discipline Type: " + disciplineType + "ListOfMembers: " + listOfMembers;
+      return "Discipline Type: " + disciplineType + "\nListOfMembers: " + memberA;
+   }
+   
+   public String toFile() {
+      return ""+ getDisciplineType() + "\n" + memberA.get(0).getFullName() + "\n" + memberA.get(0).getAddress();
    }
 }
