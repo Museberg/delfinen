@@ -70,6 +70,9 @@ public class Member{
     public void setPhoneNumber(int phoneNumber){
         this.phoneNumber = phoneNumber;
     }
+    public void setBirthDate(LocalDate birthDate){
+        this.birthDate = birthDate;
+    }
     public void setMembershipStatus(Boolean membershipStatus){
         this.membershipStatus = membershipStatus;
     }

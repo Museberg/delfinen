@@ -9,7 +9,7 @@ public class CompSwimmer extends Member{
         this.trainer = trainer; 
         this.swimmingDiscipline = swimmingDiscipline;
     }
-   
+    // Getters
     public String getTrainerName(){
         return trainer.getFullName();
     }
@@ -19,8 +19,12 @@ public class CompSwimmer extends Member{
     public Discipline.DisciplineType getSwimmingDiscipline(){
         return swimmingDiscipline;
     }
+    // Setters
     public void setSwimmingDiscipline(Discipline.DisciplineType swimmingDiscipline){
         this.swimmingDiscipline = swimmingDiscipline;
+    }
+    public void setTrainer(Trainer trainer){
+        this.trainer = trainer;
     }
    
     public static CompSwimmer makeNewCompSwimmer(ArrayList<Trainer> trainerA){
@@ -39,23 +43,10 @@ public class CompSwimmer extends Member{
         System.out.printf("Passive or active member?%n%d for active%n%d for passive%n", 1, 2);
         boolean membershipStatus = InputHelper.getOptionFromUser(1, 2) == 1;
 
-        System.out.println("Please select a trainer:");
-        int i = 1;
-        for(Trainer trainer : trainerA){
-            System.out.printf("%d - %s%n", i, trainer.getFullName());
-            i++;
-        }
-        int option = InputHelper.getOptionFromUser(1, trainerA.size());
-        Trainer trainer = trainerA.get(option - 1);
+        Trainer trainer = Trainer.letUserSelectTrainer(trainerA);
 
         System.out.println("Swimming discipline:");
-        i = 1;
-        for(Discipline.DisciplineType d : Discipline.DisciplineType.values()){
-            System.out.println(i + " - " + Helper.getEnumAsString(d.name()));
-            i++;
-        }
-        option = InputHelper.getOptionFromUser(1, Discipline.DisciplineType.values().length);
-        Discipline.DisciplineType swimmingDiscipline = Discipline.DisciplineType.values()[option - 1];
+        Discipline.DisciplineType swimmingDiscipline = Discipline.letUserSelectDisciplineType();
           
         return new CompSwimmer(fullName, address, phoneNumber, birthDate, membershipStatus, false, trainer, swimmingDiscipline);
     }
@@ -71,31 +62,39 @@ public class CompSwimmer extends Member{
         System.out.printf("%d - Trainer (%s)%n", 6, this.getTrainer().getFullName());
         System.out.printf("%d - Swimming Discipline (%s)%n", 7, Helper.getEnumAsString(getSwimmingDiscipline().name()));
 
+        System.out.print("Select: ");
         int option = InputHelper.getOptionFromUser(1, 7);
 
         switch(option){
             case 1: // Change name
-
+                System.out.println("What do you want to change the name to?");
+                this.setFullName(InputHelper.getStringFromUser("name"));
                 break;
             case 2: // Change address
-
+                System.out.println("What do you want to change the address to?");
+                this.setAddress(InputHelper.getAddressFromUser());
                 break;
             case 3: // Phone Number
-
+                System.out.println("What do you want to change the phone number to?");
+                this.setPhoneNumber(InputHelper.getPhoneNumberFromUser());
                 break;
             case 4: // Change birthdate
-
+                System.out.println("What do you want to change the birthdate to?");
+                this.setBirthDate(DateHelper.getValidDateFromUser());
                 break;
             case 5: // Change membership status
-
+                System.out.printf("What do you want to change the update status to?%n%d for active%n%d for passive%nSelect: ", 1, 2);
+                this.setMembershipStatus(InputHelper.getOptionFromUser(1, 2) == 1);
                 break;
             case 6: // Change trainer
-
+                System.out.println("Which trainer do you want to change it to?");
+                this.setTrainer(Trainer.letUserSelectTrainer(trainerA));
                 break;
             case 7: // Change swimming discipline
-
+                System.out.println("What do you want to change the swimming discipline type to?");
+                this.setSwimmingDiscipline(Discipline.letUserSelectDisciplineType());
                 break;
-            default:
+            default: // Do nothing
                 break;
         }
 

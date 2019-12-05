@@ -53,7 +53,7 @@ public class DolphinMenu {
             System.out.println("3 - Display " + type + " information ");
             System.out.println("0 - Back to main menu                ");
             System.out.print("\nSelect: ");
-             int menuChoice = InputHelper.getOptionFromUser(0,3);
+            int menuChoice = InputHelper.getOptionFromUser(0,3);
             switch(menuChoice) {
                 case 1:
                     if(type.equals("trainer")) {
@@ -61,7 +61,7 @@ public class DolphinMenu {
                     }else if(type.equals("member")) {
                         Member.makeNewMember();
                     }else if(type.equals("tournament")) {
-                        Tournament.makeNewMember();
+                        //Tournament.makeNewMember(); Virker ikke :-)
                     }
                     break;
                 case 2: 

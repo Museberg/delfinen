@@ -80,4 +80,16 @@ public class Trainer{
         
         return new Trainer(fullName, address, phoneNumber, teamName, membershipStatus);
     }
+
+    // Prints list of trainers and returns the trainer selected by the user
+    public static Trainer letUserSelectTrainer(ArrayList<Trainer> trainerA){
+        int trainers = trainerA.size();
+
+        System.out.println("Please select a trainer:");
+        for(int i = 1; i <= trainers; i++){
+            System.out.printf("%d - %s%n", i, trainerA.get(i-1).getFullName());
+        }
+        System.out.print("Select: ");
+        return trainerA.get(InputHelper.getOptionFromUser(0, trainers) - 1);
+    }
 }
