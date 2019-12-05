@@ -30,8 +30,17 @@ public class TimeHelper{
         return true;
     }
 
+    // Adding 00 hours to LocalTime as it does not support no value
     private static String addHours(String timeStr){
     	return String.format("00:%s", timeStr);
+    }
+    // Only returns mm:ss.SSS
+    public static String toFile(LocalTime time){
+    	return time.toString().substring(3);
+    }
+    // Parses string from file to LocalTime
+    public static LocalTime parseTime(String timeStr){
+    	return LocalTime.parse(addHours(timeStr), formatter);
     }
 
 }
