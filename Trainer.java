@@ -88,4 +88,24 @@ public class Trainer{
    public String toFile(){
       return fullName + "\n" + address + "\n" +phoneNumber + "\n" +teamName;
    }
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+    
+    public void setIsOver18(boolean isOver18) {
+        this.isOver18 = isOver18;
+    }
+    
+
+    // Prints list of trainers and returns the trainer selected by the user
+    public static Trainer letUserSelectTrainer(ArrayList<Trainer> trainerA){
+        int trainers = trainerA.size();
+
+        System.out.println("Please select a trainer:");
+        for(int i = 1; i <= trainers; i++){
+            System.out.printf("%d - %s%n", i, trainerA.get(i-1).getFullName());
+        }
+        System.out.print("Select: ");
+        return trainerA.get(InputHelper.getOptionFromUser(0, trainers) - 1);
+    }
 }
