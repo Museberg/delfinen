@@ -24,13 +24,13 @@ public class DolphinMenu {
             int menuChoice = InputHelper.getOptionFromUser(0,3);
             switch(menuChoice) {
                 case 1: 
-                    subMenu("trainer");
+                    subMenu("trainer", trainerA, memberA, tournamentA);
                     break;
                 case 2:
-                    subMenu("member");
+                    subMenu("member", trainerA, memberA, tournamentA);
                     break;
                 case 3: 
-                    subMenu("tournament");
+                    subMenu("tournament", trainerA, memberA, tournamentA);
                     break;
                 case 0: 
                     shouldWeQuit = true;
@@ -43,7 +43,7 @@ public class DolphinMenu {
     
     // Sub menues
     
-    public static void subMenu(String type) {
+    public static void subMenu(String type, ArrayList<Trainer> trainerA, ArrayList<Member> memberA, ArrayList<Tournament> tournamentA) {
         Scanner input = new Scanner(System.in);
         boolean shouldWeQuit = false;
         do {
@@ -57,11 +57,11 @@ public class DolphinMenu {
             switch(menuChoice) {
                 case 1:
                     if(type.equals("trainer")) {
-                        Trainer.makeNewTrainer();
+                        trainerA.add(Trainer.makeNewTrainer());
                     }else if(type.equals("member")) {
-                        Member.makeNewMember();
+                        memberA.add(Member.makeNewMember());
                     }else if(type.equals("tournament")) {
-                        //Tournament.makeNewMember(); Virker ikke :-)
+                        tournamentA.add(Tournament.makeNewTournament(memberA));
                     }
                     break;
                 case 2: 

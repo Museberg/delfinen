@@ -34,7 +34,17 @@ public class Discipline {
     public void setListOfMembers(String listOfMembers) { // Husk at ændre fra string til ArrayList, når der er en liste.
         this.memberA = memberA;
     }
-
+    
+    // Show top 5
+   /* public void printTop5(ArrayList<CompSwimmer> compSwimmerA) {
+        ArrayList<CompSwimmers> tempA = new ArrayList<>();
+        for(CompSwimmer s : compSwimmerA) {
+            if() {
+                
+            }
+        }
+    }*/
+    
     // Prints list of discipline types and returns the discipline type selected by the user
     public static DisciplineType letUserSelectDisciplineType(){
         System.out.println("Please select the discipline type:");
