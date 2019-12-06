@@ -102,6 +102,9 @@ public class CompSwimmer extends Member{
 
     public static CompSwimmer letUserSelectCompSwimmer(ArrayList<CompSwimmer> swimmerA, Discipline.DisciplineType swimmingDiscipline){
         int swimmers = swimmerA.size();
+        if(swimmers == 0){
+            return null;
+        }
         int i = 1;
         for(CompSwimmer swimmer : swimmerA){
             if(swimmer.getSwimmingDiscipline() == swimmingDiscipline){ // For arraylist use contains
@@ -112,6 +115,7 @@ public class CompSwimmer extends Member{
         System.out.print("Select: ");
         return swimmerA.get(InputHelper.getOptionFromUser(1, swimmers) - 1);
     }
+
     public String toString(){
         return "Competitive swimmer" +
             "\nName: " + getFullName() +

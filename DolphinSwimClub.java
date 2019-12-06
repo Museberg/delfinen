@@ -7,6 +7,7 @@ public class DolphinSwimClub{
 	public static void main(String[] args){
 		ArrayList<Trainer> trainerA = new ArrayList<Trainer>();
 		ArrayList<Member> memberA = new ArrayList<>(); 
+		ArrayList<Tournament> tournamentA = new ArrayList<>();
 
 		Trainer newTrainer = new Trainer("Uncle Jules", "Nørrebro Lige Der Over 2200", 12345678, "Team Jules", false);
 
