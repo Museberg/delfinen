@@ -55,7 +55,7 @@ public class DolphinMenu {
             System.out.print("\nSelect: ");
             int menuChoice = InputHelper.getOptionFromUser(0,3);
             switch(menuChoice) {
-                case 1:
+                case 1: // New
                     if(type.equals("trainer")) {
                         trainerA.add(Trainer.makeNewTrainer());
                     }else if(type.equals("member")) {
@@ -64,16 +64,16 @@ public class DolphinMenu {
                         tournamentA.add(Tournament.makeNewTournament(memberA));
                     }
                     break;
-                case 2: 
+                case 2:  // Edit
                     if(type.equals("trainer")) {
                         
                     }else if(type.equals("member")) {
                     
                     }else if(type.equals("tournament")) {
-                    
+                        tournamentA.get(0).editTournament(memberA);
                     }
                     break;
-                case 3:
+                case 3: // Display
                     if(type.equals("trainer")) {
   
                     }else if(type.equals("member")) {

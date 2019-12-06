@@ -21,7 +21,7 @@ public class DolphinSwimClub{
 		//System.out.print(newMem);
 		//CompSwimmer.makeNewCompSwimmer(trainerA);
 
-		Tournament.makeNewTournament(memberA);
+		DolphinMenu.mainMenu(trainerA, memberA, tournamentA);
 
 	}
 }

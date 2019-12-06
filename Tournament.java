@@ -62,11 +62,12 @@ public class Tournament {
         Scanner console = new Scanner(System.in);
 
         System.out.printf("%d - Change the tournament's name%n", 1);
-        System.out.printf("%d - Change the tournament's location%n,", 2);   
+        System.out.printf("%d - Change the tournament's location%n", 2);   
         System.out.printf("%d - Change the tournament's discipline. This also clears the list of participants%n", 3);
         System.out.printf("%d - Change the participants of this tournament%n", 4);
         System.out.print("Select: ");
         int option = InputHelper.getOptionFromUser(1, 4);
+        System.out.println("");
 
         switch(option) {
             case 1: // Change tournament name
@@ -80,7 +81,7 @@ public class Tournament {
                 break; // Change tournament discipline (and add new participants)
             
             case 3:
-                System.out.printf("What do you want to change the discipline to?%n Please note that this clears list of participants%n");
+                System.out.printf("What do you want to change the discipline to?%nPlease note that this clears list of participants%n");
                 System.out.printf("Are you sure you want to continue?%nPress %d for no%nPress %d for yes%n", 0, 1);
                 if(InputHelper.getOptionFromUser(0, 1) == 0){ // If user wish to abort
                     break;
