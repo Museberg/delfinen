@@ -124,7 +124,7 @@ public class FileHandler {
    throws FileNotFoundException {
       PrintStream outputTournament = new PrintStream(new File("Tournament_Info.txt"));
       for(int i = 0; i < tournamentA.size(); i++){
-         //outputTournament.println(tournamentA.get(i).toFile); Tournament needs toFile()-method.
+         outputTournament.println(tournamentA.get(i).toFile()); 
       }     
       PrintStream outputTrainer = new PrintStream(new File("Trainer_Info.txt"));
       for(int i = 0; i < tournamentA.size(); i++) {
