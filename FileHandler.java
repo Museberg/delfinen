@@ -1,4 +1,6 @@
 import java.util.*;
+import java.time.*;
+import java.time.format.*;
 import java.io.*;
 public class FileHandler {
    
@@ -23,14 +25,15 @@ public class FileHandler {
         int tPhoneNumber = Integer.parseInt(input.nextLine());
         String teamName = input.nextLine();
         boolean isOver18 = input.nextBoolean();
-        Trainer tempT = new Trainer(tName, tAddress, tPhoneNumber, teamName, isOver18); 
+        Trainer tempT = new Trainer(tName, tAddress, tPhoneNumber, teamName, isOver18);
+        CompSwimmer tempC = new CompSwimmer(fullName, address, phoneNumber, birthDate, membershipStatus, false, tempT, disciplineType); // add this to Map together with LocalTime.
+        Map<CompSwimmer, LocalTime> participants = new LinkedHashMap <tempC, LocalTime>(); //
       
-        Tournament temp = new Tournament(tournamentName, location, disciplineType,);
+        Tournament temp = new Tournament(tournamentName, location, disciplineType, participants);
         tournamentA.add(temp);
         }
     return tournamentA;
-    }
-    // Change so it follows the new tournament class ^^^^*/
+    }*/
    
    public static ArrayList<Trainer> readTrainerInfo(ArrayList<Trainer> trainerA) throws FileNotFoundException {
       Scanner input = new Scanner(new File("Trainer_Info.txt"));
@@ -117,25 +120,27 @@ public class FileHandler {
       return compSwimmerA;
    }
    
-   public static void saveToFile(ArrayList<Tournament> tournamentA, ArrayList<Trainer> trainerA, ArrayList<Member> memberA, ArrayList<CompSwimmer> compSwimmerA)
+   public static void saveToFile(ArrayList<Tournament> tournamentA, ArrayList<Trainer> trainerA, ArrayList<Discipline> disciplineA, ArrayList<Member> memberA, ArrayList<CompSwimmer> compSwimmerA)
    throws FileNotFoundException {
       PrintStream outputTournament = new PrintStream(new File("Tournament_Info.txt"));
       for(int i = 0; i < tournamentA.size(); i++){
-         outputTournament.println(tournamentA.get(i));
-      }
-      
+         outputTournament.println(tournamentA.get(i).toFile()); 
+      }     
       PrintStream outputTrainer = new PrintStream(new File("Trainer_Info.txt"));
       for(int i = 0; i < tournamentA.size(); i++) {
-         outputTrainer.println(trainerA.get(i));
+         outputTrainer.println(trainerA.get(i).toFile());
       }
+      PrintStream outputDiscipline = new PrintStream(new File("Discipline_Info.txt"));
+      for(int i = 0; i < disciplineA.size(); i++){
+        outputDiscipline.println(disciplineA.get(i).toFile()); // Remember to check toString
+      }      
       PrintStream outputMember = new PrintStream(new File("Member_Info.txt"));
       for(int i = 0; i < tournamentA.size(); i++) {
-         outputMember.println(memberA.get(i));
-      }
-      
+         outputMember.println(memberA.get(i).toFile());
+      }      
       PrintStream outputCompSwimmer = new PrintStream(new File("CompSwimmer.txt"));
       for(int i = 0; i < compSwimmerA.size(); i++) {
-         outputCompSwimmer.println(compSwimmerA.get(i));
+         outputCompSwimmer.println(compSwimmerA.get(i).toFile());
       }
    }
 }
