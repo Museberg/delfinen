@@ -51,7 +51,6 @@ public class Tournament {
 
         Map<CompSwimmer, LocalTime> participants = new LinkedHashMap <CompSwimmer, LocalTime>();
 
-
         System.out.println("Please select the participants of this tournament");
         addParticipants(participants, memberA, disciplineType);
       
@@ -94,7 +93,9 @@ public class Tournament {
 
             case 4: // Change the participants
                 System.out.println("What change in participants do you want to make?");
-                System.out.printf("%d to remove specific participants%n%d to add specific participants%n%d to remove all participants", 1, 2, 3);
+                System.out.printf("%d to remove specific participants%n%d to add specific participants%n%d to remove all participants%n", 1, 2, 3);
+                System.out.println("Select: ");
+                System.out.println("");
                 int selection = InputHelper.getOptionFromUser(1, 3);
 
                 switch(selection) {
@@ -128,7 +129,7 @@ public class Tournament {
         // Creating list that only contains members who are competetive swimmers
         for(int i = 0; i < memberA.size(); i++){
             if(memberA.get(i) instanceof CompSwimmer){
-            tempSwimmerA.add((CompSwimmer) memberA.get(i));
+                tempSwimmerA.add((CompSwimmer) memberA.get(i));
             }
         }
         do{
@@ -145,6 +146,7 @@ public class Tournament {
             // Adding swimmer with time to map
             participants.put(swimmer, time);
 
+
             System.out.printf("Do you wish to add another competitor to the tournament?%nPress %d for no%nPress %d for yes%nSelect: ", 0, 1);
             addAnother = InputHelper.getOptionFromUser(0, 1) == 1;
 
@@ -154,7 +156,7 @@ public class Tournament {
     private static void deleteParticipants(Map<CompSwimmer, LocalTime> participants){
         int i = 1;
         for (Map.Entry<CompSwimmer, LocalTime> participant : participants.entrySet()){
-            System.out.printf("%d - %s", i, participant.getKey());
+            System.out.printf("%d - %s", i, participant.getKey().getFullName());
         }
         Object[] keys = participants.keySet().toArray();
         participants.remove(keys[i - 1]);
