@@ -160,4 +160,16 @@ public class Tournament {
         participants.remove(keys[i - 1]);
 
     }
+    
+
+    public String toString(){
+        return "Tournamentname: " + tournamentName +
+        "\n" + "Location: " + location +
+        "\n" + "DisciplineType: " + disciplineType;
+    }
+    public String toFile(){
+        return tournamentName + 
+        "\n" + location +
+        "\n" + disciplineType;
+    }
 }
