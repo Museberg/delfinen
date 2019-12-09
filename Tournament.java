@@ -135,7 +135,7 @@ public class Tournament {
         do{
             CompSwimmer swimmer = CompSwimmer.letUserSelectCompSwimmer(tempSwimmerA, disciplineType);
             if(swimmer == null){
-                System.out.printf("There are currently no swimmers registered in %s", Helper.getEnumAsString(disciplineType.name()));
+                System.out.printf("There are currently no swimmers registered in %s", Helper.formtEnum(disciplineType.name()));
                 return;
             }
             tempSwimmerA.remove(swimmer);

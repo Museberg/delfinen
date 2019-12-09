@@ -50,7 +50,7 @@ public class Discipline {
         System.out.println("Please select the discipline type:");
         int i = 1;
         for(DisciplineType d : DisciplineType.values()){
-            System.out.println(i + " - " + Helper.getEnumAsString(d.name()));
+            System.out.println(i + " - " + Helper.formatEnum(d.name()));
             i++;
         }
         System.out.print("Select: ");

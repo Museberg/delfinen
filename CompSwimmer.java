@@ -61,7 +61,7 @@ public class CompSwimmer extends Member{
         System.out.printf("%d - Birthdate (%s)%n", 4, DateHelper.dateToString(this.getBirthDate()));
         System.out.printf("%d - Membership Status (%s)%n", 5, (this.getMembershipStatus() ? "Active" : "Passive"));
         System.out.printf("%d - Trainer (%s)%n", 6, this.getTrainer().getFullName());
-        System.out.printf("%d - Swimming Discipline (%s)%n", 7, Helper.getEnumAsString(getSwimmingDiscipline().name()));
+        System.out.printf("%d - Swimming Discipline (%s)%n", 7, Helper.formatEnum(getSwimmingDiscipline().name()));
 
         System.out.print("Select: ");
         int option = InputHelper.getOptionFromUser(1, 7);
