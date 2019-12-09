@@ -84,7 +84,7 @@ public class CompSwimmer extends Member{
                 this.setBirthDate(DateHelper.getValidDateFromUser());
                 break;
             case 5: // Change membership status
-                System.out.printf("What do you want to change the update status to?%n%d for active%n%d for passive%nSelect: ", 1, 2);
+                System.out.printf("What do you want to change the update status to?%n%d for active%n%d for passive%nSelect%n: ", 1, 2);
                 this.setMembershipStatus(InputHelper.getOptionFromUser(1, 2) == 1);
                 break;
             case 6: // Change trainer
