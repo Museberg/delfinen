@@ -133,9 +133,10 @@ public class Tournament {
             }
         }
         do{
+            // Returns null if no particpants are enrolled in the swimming discipline
             CompSwimmer swimmer = CompSwimmer.letUserSelectCompSwimmer(tempSwimmerA, disciplineType);
             if(swimmer == null){
-                System.out.printf("There are currently no swimmers registered in %s", Helper.formtEnum(disciplineType.name()));
+                System.out.printf("There are currently no swimmers registered in %s", Helper.formatEnum(disciplineType.name()));
                 return;
             }
             tempSwimmerA.remove(swimmer);
