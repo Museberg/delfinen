@@ -71,10 +71,10 @@ public class InputHelper{
       Scanner scanInput = new Scanner(System.in);
    
       System.out.printf("Please enter the street and house number%n");
-      String street = scanInput.next();
+      String street = scanInput.nextLine();
    
       System.out.printf("Please enter the city%n");
-      String city = scanInput.next();
+      String city = scanInput.nextLine();
    
       System.out.printf("Please enter the postal code%n");
       String postal = Integer.toString(getIntFromUser());
